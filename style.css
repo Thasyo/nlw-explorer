@@ -1,0 +1,164 @@
+/*Resetando css*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+ul{
+    list-style: none; /*limpando estilização padrão das listas */
+    display: flex; /*Alinhas os items da tag horizontalmente. */
+    gap: 16px; /*Adiciona um certo espaçamento entre os items da tag. Só pode 
+                ser usada antes do display for anunciado.*/
+    
+    margin-top: 24px;
+
+    display: flex;
+    flex-wrap: wrap; /*"quebra" a página, no lugar do conteudo seguir linha reta, ele vai pra baixo
+                        e vai se organizando de acordo com tamanho da tela do usuário.*/
+}
+
+ul li{
+    transition: transform .3s;
+}
+
+ul li:hover{
+    transform: scale(1.1); /*Faz com que, quando passamos o mouse em cima, o elemento fica um pouco maior.*/
+}
+
+/*Alpicando o background-image.*/
+body {
+    background-image: url(./assets/bg.jpg);
+    background-position: top center; /*Alterando posição da imagem em relação a tag pai.*/
+    background-size: 100% auto; /*Alterando o tamanho*/
+    background-repeat: no-repeat; /*Faz com que a imagem não se repita enquanto estiver fazendo contato.*/
+    background-color: #121214; /*"Gambiarra para completar body com o fundo de imagem."*/
+}
+
+header{
+    /*text-align: center;*/ /*Funcinalidade responsável por ajustar na tela (esquerda, centro, direita)
+                        os elementos que tem propriedades de texto. Caso os elementos não tenha propriedades de texto;
+                        geralmente usa-se o "margin: auto" que também é uma de centralizar elementos.*/
+    padding-top: 32px;
+    height: calc(120px + 32px); /*Foi necessário para arrumar a animação*/
+}
+
+header div{
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43e7ad 50%, #e2d45c 100%);
+    border-radius: 50%;
+    display: flex; /*Outra funcionalidade do "display: flex" é que, qunado você tem somente um elemento, e aplica o "display: flex"
+                    ele vai alinhar o elemento e suas propriedades. DICA: desabilite e habilite essa função para você entender na prática.*/
+    padding: 4px; /*responsável por preencher a borda do perfil/header.*/
+
+    transition: transform .3s; /*Completa a transição.*/
+}
+
+header div:hover{ /*CSS TRASITION: quando pssamos o mouse em cima do elemento.*/
+    transform: scale(1.1); /*Faz com que, quando passamos o mouse em cima, o elemento fica um pouco maior.*/
+}
+
+header div img{
+    width: 100%; /*Significa que ela vai ocupar 100% da largura da div que esta sobrepondo a imagem.*/ 
+    border-radius: 50%;
+}
+
+main {
+    max-width: 580px; /*Determina a largura máxima */
+    width: 90%; /*Definindo que o cotneúdo largura de 90% em relação a tag main*/
+    margin: 32px auto; /*Serve para centralizar tags que não são tipos de textos, mas sim objetos*/
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    margin-top: 32px;  
+}
+section{
+    color: #fff;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43e7ad 50%, #e2d45c 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div{
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+
+}
+
+section h2{
+    letter-spacing: -0.47px; /*coloca espaçamento entre as letras*/
+}
+
+section p{
+    letter-spacing: -0.10px;
+    color: #A1A1AA;
+}
+
+.games-list img{
+    width: 90px; /*Adiciona largura*/
+    border-radius: 8px;
+    border: 1px solid rgb(255, 210, 131);
+}
+
+.channel-list img{
+    border-radius: 50%; /*Deixa a borda das coisas arredondadas*/
+    width: 70px;
+    border: 1px solid rgb(255, 210, 131);
+
+}
+
+.social-list svg{
+    border-radius: 50%;
+    border: 1px solid rgb(255, 210, 131);
+}
+
+/*CSS ANIMATION*/
+
+header div{
+    animation: fromTop .2s .3s backwards; /*Responsável por aplicar a animação nos elementos.*/
+    /*fromTop: animation name | .2s: Tempo de execução da animation | .3s: delay da animação | backwards: Carrega a animação juntamente com as propriedades.*/
+}
+
+@keyframes fromTop{ /*@keyframes é reponsável por criar a animação.*/
+    from{
+        opacity: 0;
+        transform: translateY(-30px); /*Onde vai iniciar a animação.*/
+    }
+
+    to{
+        transform: translateY(0); /*Vai fazer a animação na "Vertical". Onde termina a animação.*/
+    }
+}
+
+main section{
+    animation: fromBottom .5s backwards;
+}
+
+main section:nth-child(1){
+    animation-delay: .2s;
+}
+
+main section:nth-child(2){
+    animation-delay: .6s;
+}
+
+main section:nth-child(3){
+    animation-delay: .9s;
+}
+
+@keyframes fromBottom{
+    from{
+        opacity: 0;
+        transform: translateX(-30px); /*Onde vai iniciar a animação.*/
+    }
+
+    to{
+        transform: translateX(0); /*Vai fazer a animação na "Horizontal". Onde termina a animação*/
+    }
+}
